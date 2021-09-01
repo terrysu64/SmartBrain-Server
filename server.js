@@ -12,10 +12,8 @@ import knex from "knex";
 const db = knex({
     client: 'pg',
     connection: {
-      host : '127.0.0.1',
-      user : 'postgres',
-      password : '335477626',
-      database : 'SmartBrain'
+      connectionString : process.env.DATABASE_URL,
+      ssl: true,
     }
   });
 
