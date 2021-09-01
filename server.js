@@ -30,11 +30,7 @@ const temp_data = {
 //ROUTE ENDPOINTS
 
 app.get('/', (req,res) => {
-	db('users')
-		.returning('*')
-		.then(users => {
-			res.json(users)
-		})
+	res.send('server is running')
 });
 
 app.post('/register', (req,res) => {
