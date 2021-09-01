@@ -21,14 +21,14 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-const temp_data = {
-	'users': []
-};
-
 //ROUTE ENDPOINTS
 
 app.get('/', (req,res) => {
-	res.send('server is running')
+	db('users')
+		.returning('*')
+		.then(users => {
+			res.json(users)
+		})
 });
 
 app.post('/register', (req,res) => {
